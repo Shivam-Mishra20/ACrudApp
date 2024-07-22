@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+ 
+
 import { Link, useNavigate } from "react-router-dom";
 
 const Update = () => {
@@ -38,58 +40,64 @@ const Update = () => {
 
   return (
     <>
-    <div className=" container  w-auto max-w-screen-md my-5 ">
-     <h2 className=" font-extrabold font-mono text-2xl">Update</h2>
-      <form>
-        <div className="mb-3">
-          <label className="form-label">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
+      <div className=" w-full" style={{
+             minHeight: "calc(100vh - 64px)",
+                height: "100%",
+               backgroundImage: 'linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%)',
+      }}>
+        <div className=" container  w-auto max-w-screen-md py-5 ">
+          <h2 className=" font-extrabold font-mono text-2xl">Update</h2>
+          <form>
+            <div className="mb-3">
+              <label className="form-label">Name</label>
+              <input
+                type="text"
+                className="form-control"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
 
-        <div className="mb-3">
-          <label className="form-label">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Phone No</label>
-          <input
-            type="number"
-            className="form-control"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
+            <div className="mb-3">
+              <label className="form-label">Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Phone No</label>
+              <input
+                type="number"
+                className="form-control"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
 
-        <div className="mb-3">
-          <label className="form-label">Bio</label>
-          <textarea
-            className="form-control"
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-          ></textarea>
-        </div>
+            <div className="mb-3">
+              <label className="form-label">Bio</label>
+              <textarea
+                className="form-control"
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+              ></textarea>
+            </div>
 
-        <button
-          type="submit"
-          className="btn btn-primary mx-2"
-          onClick={handleUpdate}
-        >
-          Update
-        </button>
-        <Link to="/read">
-          <button className="btn btn-secondary mx-2"> Back </button>
-        </Link>
-      </form>
+            <button
+              type="submit"
+              className="btn btn-primary mx-2"
+              onClick={handleUpdate}
+            >
+              Update
+            </button>
+            <Link to="/read">
+              <button className="btn btn-secondary mx-2"> Back </button>
+            </Link>
+          </form>
+        </div>
       </div>
     </>
   );

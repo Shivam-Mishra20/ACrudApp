@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CgMenuRound } from 'react-icons/cg';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
+  const [currentUser, setCurrentUser] = useState(() => {
     const loggedInUser = JSON.parse(localStorage.getItem('signupData'));
-    setCurrentUser(loggedInUser);
-  }, []);
+    return loggedInUser ? loggedInUser[0]?.username : null;
+  });
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -19,10 +17,9 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('signupData');
-    localStorage.removeItem('loged')
-    setCurrentUser('DataApp')
+    localStorage.removeItem('loged' )
+    setCurrentUser(null); // Clear currentUser state
     navigate('/login');
-
   };
 
   return (
@@ -35,12 +32,13 @@ const Header = () => {
       >
         <div>
           <span className='text-purple-900 text-2xl font-semibold font-mono'>
-            {currentUser ? currentUser[0].username : " DataAppp"}
+            {currentUser ? currentUser : "DataAppp"}
           </span>
         </div>
 
         <div className='flex items-center justify-center'>
-          <div className={`text-white ${isOpen ? 'w-[200px] flex items-center justify-center min-h-screen bg-purple-400 z-20 absolute top-16 right-0' : ''} items-center`}>
+
+          <div className={`text-white ${isOpen ? 'w-[200px] flex items-center justify-center     h-[88vh] bg-gradient-to-r from-[#00DBDE] to-[#FC00FF]  z-20 absolute top-16 right-0' : ''} items-center`}>
             <ul className={`md:flex items-center justify-center ${isOpen ? 'flex-col gap-4 text-center' : 'hidden sm:flex'}`}>
               <li className={`list-none px-3 ${isOpen && "py-4 hover:text-black hover:translate-y-2"}`}>
                 <Link to="/create">Home</Link>

@@ -47,13 +47,15 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-t from-cyan-500 to-indigo-600" style={{
+        <div className="flex items-center     justify-center     min-h-screen bg-gradient-to-t from-cyan-500 to-indigo-600" style={{
             backgroundColor: '#00DBDE',
             backgroundImage: ' linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
+            minHeight: "calc(100vh - 64px)",
+            height: "100%"
 
 
         }}>
-            <div className="bg-white dark:bg-gray-900 shadow-xl border max-w-[310px] w-full rounded-lg px-4 sm:px-8 py-6 md:py-2" >
+            <div className=" bg-transparent dark:bg-gray-900 shadow-xl border max-w-[310px] w-full rounded-lg px-4 sm:px-8 py-6 md:py-2" >
                 <h1 className="text-2xl font-bold text-center mb-4 text-gray-900 dark:text-gray-200">Welcome Back!</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">

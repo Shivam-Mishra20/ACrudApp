@@ -43,13 +43,19 @@ const Create = () => {
     return (
         <>
             <div style={{
+                backgroundColor: ' #FF3CAC',
+                backgroundImage: 'linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)',
+
+
+                minHeight: "calc(100vh - 64px)",
+                height: "100%"
 
 
 
             }}>
-                <div className="sm:flex items-center w-full mt-3  px-4  justify-around container">
+                <div className="sm:flex items-center w-full    px-4  justify-around container">
                     <div className=" w-auto min-w-[310px] sm:max-w-screen-md">
-                        <div className="d-flex justify-content-between m-2">
+                        <div className="d-flex justify-content-between  pt-3 ">
                             <h2 className="font-extrabold font-mono text-2xl">Create</h2>
                             <Link to="/read">
                                 <button className="btn btn-primary">Show Data</button>
@@ -57,35 +63,35 @@ const Create = () => {
                         </div>
                         <form>
                             <div className="mb-3">
-                                <label className="form-label">Name</label>
+                                <label className="form-label text-black ">Name</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control  bg-transparent"
                                     onChange={(e) => setName(e.target.value)}
                                 />
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Email address</label>
+                                <label className="form-label text-black ">Email address</label>
                                 <input
                                     type="email"
-                                    className="form-control"
+                                    className="form-control  bg-transparent"
                                     aria-describedby="emailHelp"
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Phone Number</label>
+                                <label className="form-label text-black ">Phone Number</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control  bg-transparent"
                                     maxLength={10}
                                     onChange={(e) => setPhone(e.target.value)}
                                 />
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Bio</label>
+                                <label className="form-label text-black ">Bio</label>
                                 <textarea
-                                    className="form-control"
+                                    className="form-control  bg-transparent"
                                     onChange={(e) => setBio(e.target.value)}
                                 ></textarea>
                             </div>

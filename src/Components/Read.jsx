@@ -41,94 +41,103 @@ const Read = () => {
 
     return (
         <>
-            <div className="container my-4 w-full max-w-screen-sm sm:max-w-screen-md">
-                <div className="form-check form-switch">
-                    <input
-                        className="form-check-input"
-                        type="checkbox"
-                        onClick={() => {
-                            setTableDark(prev => (prev === "table-dark" ? "" : "table-dark"));
-                        }}
-                    />
-                </div>
-                <div className="d-flex flex-wrap justify-content-between m-2">
-                    <h2 className=" text-wrap   font-mono"> Data Collection</h2>
-                    <input
-                        type="text"
-                        name="search"
-                        value={search}
-                        placeholder="Search"
-                        onChange={(e) => setSearch(e.target.value)}
+            <div className=" w-full  " style={{
+                minHeight: "calc(100vh - 64px)",
+                height: "100%",
+                backgroundColor: '#21D4FD',
+                backgroundImage: 'linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)',
 
-                        className="border p-1  px-2  mr-2"
-                    />
-                    <Link to="/create">
-                        <button className="btn btn-secondary">Create</button>
-                    </Link>
-                </div>
-                <div className="table-responsive">
-                    <table className={`table ${tableDark}`}>
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Bio</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data
-                                .filter((el) => {
-                                    if (el === "") {
-                                        return el;
-                                    } else {
-                                        return (
-                                            el.name.toLowerCase().includes(search) ||
-                                            el.email.toLowerCase().includes(search) ||
-                                            el.phone.toLowerCase().includes(search) ||
-                                            el.bio.toLowerCase().includes(search)
-                                        );
-                                    }
-                                })
-                                .map((eachData) => (
-                                    <tr key={eachData.id}>
-                                        <th scope="row">{eachData.id}</th>
-                                        <td>{eachData.name}</td>
-                                        <td>{eachData.email}</td>
-                                        <td>{eachData.phone}</td>
-                                        <td>{eachData.bio}</td>
-                                        <td>
-                                            <Link
-                                                to="/update"
-                                                onClick={() =>
-                                                    setToLocalStorage(
-                                                        eachData.id,
-                                                        eachData.name,
-                                                        eachData.email,
-                                                        eachData.bio,
-                                                        eachData.phone
-                                                    )
-                                                }
-                                            >
-                                                <button className="btn btn-success">Edit</button>
-                                            </Link>
-                                        </td>
-                                        <td>
-                                            <button
-                                                className="btn btn-danger"
-                                                onClick={() => handleDelete(eachData.id)}
-                                            >
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                        </tbody>
-                    </table>
-                </div>
+
+            }}>
+                <div className="container   pt-4  w-full max-w-screen-sm sm:max-w-screen-md"  >
+                    <div className="form-check form-switch pt-1 ">
+                        <input
+                            className="form-check-input   "
+                            type="checkbox"
+                            onClick={() => {
+                                setTableDark(prev => (prev === "table-dark" ? "" : "table-dark"));
+                            }}
+                        />
+                    </div>
+                    <div className="d-flex flex-wrap justify-content-between m-2">
+                        <h2 className=" text-wrap  pb-2  font-mono"> Data Collection</h2>
+                        <input
+                            type="text"
+                            name="search"
+                            value={search}
+                            placeholder="Search"
+                            onChange={(e) => setSearch(e.target.value)}
+
+                            className="border  text-white p-1 bg-transparent px-2  mr-2"
+                        />
+                        <Link to="/create">
+                            <button className="btn btn-secondary">Create</button>
+                        </Link>
+                    </div>
+                    <div className="table-responsive">
+                        <table className={`table ${tableDark}`}>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Bio</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data
+                                    .filter((el) => {
+                                        if (el === "") {
+                                            return el;
+                                        } else {
+                                            return (
+                                                el.name.toLowerCase().includes(search) ||
+                                                el.email.toLowerCase().includes(search) ||
+                                                el.phone.toLowerCase().includes(search) ||
+                                                el.bio.toLowerCase().includes(search)
+                                            );
+                                        }
+                                    })
+                                    .map((eachData) => (
+                                        <tr key={eachData.id}>
+                                            <th scope="row">{eachData.id}</th>
+                                            <td>{eachData.name}</td>
+                                            <td>{eachData.email}</td>
+                                            <td>{eachData.phone}</td>
+                                            <td>{eachData.bio}</td>
+                                            <td>
+                                                <Link
+                                                    to="/update"
+                                                    onClick={() =>
+                                                        setToLocalStorage(
+                                                            eachData.id,
+                                                            eachData.name,
+                                                            eachData.email,
+                                                            eachData.bio,
+                                                            eachData.phone
+                                                        )
+                                                    }
+                                                >
+                                                    <button className="btn btn-success">Edit</button>
+                                                </Link>
+                                            </td>
+                                            <td>
+                                                <button
+                                                    className="btn btn-danger"
+                                                    onClick={() => handleDelete(eachData.id)}
+                                                >
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div >
             </div>
 
         </>

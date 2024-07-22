@@ -40,6 +40,8 @@ const Signup = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+
+
             });
             return;
         }
@@ -84,28 +86,32 @@ const Signup = () => {
     }
 
     return (
-        <div className='container flex flex-wrap items-center justify-evenly px-6' style={{
-            backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
-            minHeight: "100vh"
+        <div className='container flex flex-wrap items-center justify-evenly py-2 px-6' style={{
+            backgroundColor: '#00DBDE',
+            backgroundImage: ' linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
+
+            minHeight: "calc(100vh - 64px)",
+            height: "100%"
+
         }}>
             <div>
                 <div className="w-[320px] max-w-[350px] max-h-sm mt-4">
                     <div className="shadow-xl my-3 mx-auto shadow-black rounded-lg">
-                        <div className="max-w-[300px] sm:max-w-sm w-[100%] h-[auto] mx-auto relative flex flex-col py-2 px-4 rounded-2xl text-black bg-white">
+                        <div className="max-w-[300px] sm:max-w-sm w-[100%] h-[auto] mx-auto relative flex flex-col py-2 px-4 rounded-2xl text-black   border bg-transparent">
                             <div className="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">Welcome back to <span className="text-[#7747ff]">App</span></div>
                             <div className="text-sm font-normal mb-4 text-center text-[#1e0e4b]">Signup to your account</div>
                             <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
                                 <div className="block relative">
-                                    <label htmlFor="username" className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">Username</label>
-                                    <input type="text" id="username" value={inputval.username} name='username' maxLength="15" className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0" autoComplete="user"  onChange={handleChange} />
+                                    <label htmlFor="username" className="block  text-black cursor-text text-sm leading-[140%] font-normal mb-2">Username</label>
+                                    <input type="text" id="username" value={inputval.username} name='username' maxLength="15" className="rounded border bg-transparent border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0" autoComplete="user" onChange={handleChange} />
                                 </div>
                                 <div className="block relative">
-                                    <label htmlFor="email" className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">Email</label>
-                                    <input type="text" id="email" value={inputval.email} name='email' className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0" autoComplete="email" onChange={handleChange} />
+                                    <label htmlFor="email" className="block  text-black  cursor-text text-sm leading-[140%] font-normal mb-2">Email</label>
+                                    <input type="email" id="email" value={inputval.email} name='email' className="rounded border border-gray-200 text-sm w-full bg-transparent font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0" autoComplete="email" onChange={handleChange} />
                                 </div>
                                 <div className="block relative">
-                                    <label htmlFor="password" className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">Password</label>
-                                    <input type="password" id="password" value={inputval.password} name='password' className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0" autoComplete="current-password" onChange={handleChange} />
+                                    <label htmlFor="password" className="block  text-black  cursor-text text-sm leading-[140%] font-normal mb-2">Password</label>
+                                    <input type="password" id="password" value={inputval.password} name='password' className="rounded border border-gray-200 text-sm w-full  bg-transparent font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0" autoComplete="current-password" onChange={handleChange} />
                                 </div>
                                 <div>
                                     <a className="text-sm text-[#7747ff]">Forgot your password?</a>

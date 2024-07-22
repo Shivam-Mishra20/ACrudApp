@@ -19,8 +19,10 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
 
+
         {/* protected Route  */}
         <Route path='/' element={<ProtectedRoute />}>
+          x
           <Route exact path="/create" element={<Create />} />
           <Route path="/read" element={<Read />} />
           <Route path="/update" element={<Update />} />
